@@ -3,13 +3,14 @@ import './less/index.less'
 
 // Your code goes here!
 
-//* 1. mouseenter event : mouse over "Sign Me Up" btns and change their colors
-
-// const imgBorder = document.querySelectorAll(".img-content");
-// imgBorder.addEventListener("mouseenter", evt => {
-//     imgBorder.style.borderColor = "CadetBlue";
-
-// })
+//* 1. mouseenter event 
+const navBtn = document.querySelectorAll(".nav-link");
+const navArray = Array.from(navBtn);
+navArray.forEach(button => {
+ button.addEventListener("mouseenter", evt => {
+    navBtn.style.color = "red";
+})
+})
 
 //* 2. mouseleave event : reset the colors for buttons ^^
 
@@ -47,4 +48,15 @@ window.addEventListener("keydown", evt => {
    return displayOops();
 })
 
-//* 6. 
+
+//* 6. scroll event
+//<a href="https://www.freeiconspng.com/img/38014">world, travel transparent</a>
+document.addEventListener("scroll", evt => {
+    if(document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        document.body.style.backgroundColor = "azure";
+    } else
+    if(document.body.scrollTop < 250 || document.documentElement.scrollTop < 250) {
+        document.body.style.backgroundColor = "white";
+    }
+})
+
