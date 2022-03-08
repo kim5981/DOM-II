@@ -5,19 +5,26 @@ import './less/index.less'
 
 //* 1. mouseenter event : mouse over "Sign Me Up" btns and change their colors
 
-// const signUp = document.querySelectorAll(".btn");
-// signUp.addEventListener("mouseenter", evt => {
-//     signUp.style.backgroundColor = "none";
-//     signUp.style.borderColor = "CadetBlue";
+// const imgBorder = document.querySelectorAll(".img-content");
+// imgBorder.addEventListener("mouseenter", evt => {
+//     imgBorder.style.borderColor = "CadetBlue";
+
 // })
 
 //* 2. mouseleave event : reset the colors for buttons ^^
 
 //* 3. click event : make the picture of bus disappear
 
+const bus = document.querySelector(".intro img");
+bus.addEventListener("click", evt => {
+    bus.src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9e824d69132997.5b75a8aba25aa.gif";
+})
+
+
 //* 4. dblclick event : replace the picture of bus with a gif of moving bus
 
-//* 5. keydown event : when "B" is pushed a pop-up of a ghost comes up?
+
+//* 5. keydown event
 
 function displayOops() {
     const oopsImg = document.createElement("img");
