@@ -21,8 +21,11 @@ bus.addEventListener("click", evt => {
 })
 
 
-//* 4. dblclick event : replace the picture of bus with a gif of moving bus
-
+//* 4. dblclick event : 
+const headerNav = document.querySelector(".main-navigation")
+headerNav.addEventListener("dblclick", evt => {
+    headerNav.style.backgroundColor = "LightCyan";
+})
 
 //* 5. keydown event
 
