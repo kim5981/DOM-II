@@ -33,7 +33,7 @@ Do not **move or rename any files** in this project. The website's source files 
   * [x] `click`
   * [x] `dblclick`
   * [ ] `select`
-  * [ ] `scroll`
+  * [x] `scroll`
   * [ ] `select`
   * [ ] `dblclick`
   * [ ] `drag / drop`

@@ -3,18 +3,29 @@ import './less/index.less'
 
 // Your code goes here!
 
-//* 1. mouseenter event 
-const navBtn = document.querySelectorAll(".nav-link");
-const navArray = Array.from(navBtn);
-navArray.forEach(button => {
- button.addEventListener("mouseenter", evt => {
-    navBtn.style.color = "red";
-})
-})
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------  MOUSE ENTER & MOUSE LEAVE EVENT  ------------------------------------------------*/
 
-//* 2. mouseleave event : reset the colors for buttons ^^
+const navBtns = document.querySelectorAll(".nav-link");
+console.log(navBtns);
+// const mouseEnter = () => {
+//     navArray.addEventListener("mouseenter", evt => {
+//         navBtn.style.color = "red";
+//         navArray.forEach(btn => mouseEnter(btn));
+// } 
+navBtns.forEach(btn => {
+    btn.addEventListener("mouseenter", evt => {
+        btn.style.color = "SlateGrey" 
+    })
+    btn.addEventListener("mouseleave", evt => {
+        btn.style.color = "black"
+    })
+} )
 
-//* 3. click event : make the picture of bus disappear
+
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------   CLICK EVENT  ------------------------------------------------*/
+
 
 const bus = document.querySelector(".intro img");
 bus.addEventListener("click", evt => {
@@ -22,41 +33,43 @@ bus.addEventListener("click", evt => {
 })
 
 
-//* 4. dblclick event : 
+
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------   DBL CLICK EVENT  ------------------------------------------------*/
+
 const headerNav = document.querySelector(".main-navigation")
 headerNav.addEventListener("dblclick", evt => {
-    headerNav.style.backgroundColor = "LightCyan";
+    headerNav.style.backgroundColor = "SteelBlue";
 })
 
-//* 5. keydown event
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------   KEYDOWN EVENT  ------------------------------------------------*/
 
-function displayOops() {
-    const oopsImg = document.createElement("img");
-    oopsImg.src = "https://i.ibb.co/F4WXRNB/oops.png";
-    oopsImg.classList.add("oops")
- document.body.appendChild(oopsImg);
-}
 
-function clear() {
-    document.body.innerHTML = "";
-}
-
-window.addEventListener("keydown", evt => {
+function displayOops(evt) {
     if (evt.key === "b") {
-     clear();
+        document.body.innerHTML = ""
+        const oopsImg = document.createElement("img");
+        oopsImg.src = "https://i.ibb.co/F4WXRNB/oops.png";
+        oopsImg.classList.add("oops")
+     document.body.appendChild(oopsImg);
+     window.removeEventListener("keydown", displayOops)
     }
-   return displayOops();
-})
+   
+}
+
+window.addEventListener("keydown", displayOops)
 
 
-//* 6. scroll event
-//<a href="https://www.freeiconspng.com/img/38014">world, travel transparent</a>
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------   SCROLL EVENT  ------------------------------------------------*/
 document.addEventListener("scroll", evt => {
     if(document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-        document.body.style.backgroundColor = "azure";
+        document.body.style.backgroundColor = "FloralWhite";
     } else
     if(document.body.scrollTop < 250 || document.documentElement.scrollTop < 250) {
         document.body.style.backgroundColor = "white";
     }
 })
+
 
