@@ -7,20 +7,23 @@ import './less/index.less'
 * ---------------------------------------  MOUSE ENTER & MOUSE LEAVE EVENT  ------------------------------------------------*/
 
 const navBtns = document.querySelectorAll(".nav-link");
-console.log(navBtns);
-// const mouseEnter = () => {
-//     navArray.addEventListener("mouseenter", evt => {
-//         navBtn.style.color = "red";
-//         navArray.forEach(btn => mouseEnter(btn));
-// } 
+const h1 = document.querySelector("h1");
+
 navBtns.forEach(btn => {
     btn.addEventListener("mouseenter", evt => {
-        btn.style.color = "SlateGrey" 
+        btn.style.color = "LightPink" 
     })
     btn.addEventListener("mouseleave", evt => {
         btn.style.color = "black"
     })
 } )
+
+h1.addEventListener("mouseenter", evt => {
+    h1.style.color = "LightPink"
+})
+h1.addEventListener("mouseleave", evt => {
+    h1.style.color = "black"
+})
 
 
 /*------------------------------------------------------------------------------------------------------------
@@ -29,6 +32,7 @@ navBtns.forEach(btn => {
 
 const bus = document.querySelector(".intro img");
 bus.addEventListener("click", evt => {
+    bus.classList.add("wheel");
     bus.src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9e824d69132997.5b75a8aba25aa.gif";
 })
 
@@ -39,7 +43,7 @@ bus.addEventListener("click", evt => {
 
 const headerNav = document.querySelector(".main-navigation")
 headerNav.addEventListener("dblclick", evt => {
-    headerNav.style.backgroundColor = "SteelBlue";
+    headerNav.style.backgroundColor = "LavenderBlush";
 })
 
 /*------------------------------------------------------------------------------------------------------------
@@ -72,4 +76,49 @@ document.addEventListener("scroll", evt => {
     }
 })
 
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------   SELECT EVENT  ------------------------------------------------*/
 
+const alertSelection = (evt) => {
+    const selection = document.body.select();
+    console.log(selection);
+    alert( `You selected: ${selection}` )
+}
+window.addEventListener("select", alertSelection);
+
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------   WHEEL EVENT  ------------------------------------------------*/
+const allH2 = document.querySelectorAll("h2");
+
+function wheel (evt) {
+    const fontSize = allH2.style.fontSize;
+    let value = Number(fontSize.substr(0, fontSize.length-2));
+
+    //when ~wheeling~ up
+    if (evt.deltaY < 0) {
+        if(value < 50) {
+            value++;
+        }
+    }
+    //when ~wheeling~ down
+    if(evt.deltaY > 0) {
+        if(value > 5) {
+            value--;
+        }
+    }
+    allH2.style.fontSize = value + "px";
+}
+
+allH2.forEach(h2 => {
+    h2.addEventListener("wheel", wheel)
+})
+
+
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------  CANCEL EVENT  ------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------------------
+* ---------------------------------------   LOAD EVENT  ------------------------------------------------*/
+window.addEventListener("load", evt => {
+    alert("Let's start the fun bus ᕕ(⌐■_■)ᕗ ♪♬")
+})
